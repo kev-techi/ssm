@@ -9,11 +9,16 @@ import SwiftUI
 
 @main
 struct Simple_State_ManagementApp: App {
+    let storage = Storage();
+    
     let counterState = CounterState()
+    let todoState = TodoState()
     
     var body: some Scene {
         WindowGroup {
-            RouterView().environmentObject(counterState)
+            RouterView()
+                .environmentObject(counterState)
+                .environmentObject(todoState)
         }
     }
 }

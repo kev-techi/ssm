@@ -15,7 +15,7 @@ struct CounterReadOnlyView: View {
     }
 }
 
-struct _CounterReadOnlyView: View {
+private struct _CounterReadOnlyView: View {
     @ObservedObject var counterState: CounterState
     
     init(counterState: CounterState) {

@@ -28,6 +28,10 @@ struct _CounterView: View {
         logic.bumpUpCounter()
     }
     
+    func handleAsyncBumpUp() {
+        logic.asyncBumpUpCounter()
+    }
+    
     func handleBumpDown() {
         logic.bumpDownCounter()
     }
@@ -41,6 +45,8 @@ struct _CounterView: View {
             Text("Amount: \(counterState.counter)")
             Divider()
             Button("Add", systemImage: "plus", action: handleBumpUp)
+            Divider()
+            Button("Async Add", systemImage: "plus", action: handleAsyncBumpUp)
             Divider()
             Button("Remove", systemImage: "minus", action: handleBumpDown)
             Divider()

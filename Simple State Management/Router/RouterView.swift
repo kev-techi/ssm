@@ -11,16 +11,20 @@ struct RouterView : View {
     var body: some View {
         TabView{
             CounterView().tabItem { Label(
-                "Counter View",
+                "Counter1",
                 systemImage: "rectangle.badge.plus"
             ) }
             CounterReadOnlyView().tabItem { Label(
-                "Counter View (readonly)",
+                "Counter1 (readonly)",
                 systemImage: "rectangle.fill.badge.plus"
             ) }
-            Home1View().tabItem { Label(
-                "View 2",
-                systemImage: "house.circle"
+            CounterFreshView().tabItem { Label(
+                "Counter2 (fresh)",
+                systemImage: "rectangle.fill.badge.plus"
+            ) }
+            TodoView().tabItem { Label(
+                "To Do",
+                systemImage: "checklist"
             ) }
         }
     }

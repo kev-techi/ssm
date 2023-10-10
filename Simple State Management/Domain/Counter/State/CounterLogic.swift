@@ -20,9 +20,25 @@ extension CounterLogic {
         state.increment()
     }
     
+     func asyncBumpUpCounter() {
+        Task {
+            try await Task.sleep(nanoseconds: 1000000000)
+            
+            state.increment()
+        }
+    }
+    
     func bumpDownCounter() {
         state.decrement()
     }
+    
+    func asyncBumpDownCounter() {
+       Task {
+           try await Task.sleep(nanoseconds: 1000000000)
+           
+           state.decrement()
+       }
+   }
     
     func reset() {
         state.reset()
