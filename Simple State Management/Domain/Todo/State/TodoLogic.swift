@@ -25,22 +25,20 @@ extension TodoLogic {
         } catch {}
     }
     
-    func fetchTodos() {
-        Task {
-            do {
-                state.fetchTodoRequest()
-                
-                // fake delay
-                try await Task.sleep(nanoseconds: 2000000000)
-                let fetchedItems: [TodoItem] = [
-                    TodoItem(text: "first item"),
-                    TodoItem(text: "second item"),
-                ]
-                
-                state.fetchTodoSuccess(items: fetchedItems)
-            } catch {
-                state.fetchTodoFail()
-            }
+    func fetchTodos() async {
+        do {
+            state.fetchTodoRequest()
+            
+            // fake delay
+            try await Task.sleep(nanoseconds: 1000000000)
+            let fetchedItems: [TodoItem] = [
+                TodoItem(text: "first item"),
+                TodoItem(text: "second item"),
+            ]
+            
+            state.fetchTodoSuccess(items: fetchedItems)
+        } catch {
+            state.fetchTodoFail()
         }
     }
 

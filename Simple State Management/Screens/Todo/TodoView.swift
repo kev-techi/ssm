@@ -25,7 +25,9 @@ struct _TodoView: View {
     }
     
     func onLoad() {
-        logic.fetchTodos()
+        Task {
+            await logic.fetchTodos()
+        }
     }
     
     func handleSearchSubmit(text: String) {

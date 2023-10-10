@@ -205,7 +205,7 @@ struct _TodoView: View {
 }
 ```
 
-You can instantiate Logic and call methods to update your State
+You can instantiate Logic and call methods to update your State:
 ```
 struct _TodoView: View {
     @ObservedObject private var todoState: TodoState
@@ -235,7 +235,7 @@ struct _TodoView: View {
 }
 ```
 
-Selectors can be used to combine State data and update the UI
+Selectors can be used to combine State data and update the UI:
 ```
 struct _TodoView: View {
     @ObservedObject private var todoState: TodoState
