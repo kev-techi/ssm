@@ -9,8 +9,6 @@ import SwiftUI
 
 @main
 struct Simple_State_ManagementApp: App {
-    let storage = Storage();
-    
     let counterState = CounterState()
     let todoState = TodoState()
     

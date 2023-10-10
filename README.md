@@ -138,3 +138,122 @@ func selectFilteredTodos(state: TodoState) -> [TodoItem] {
     }
 }
 ```
+
+## Instantiation
+
+### App level
+
+Through EnvironmentObject, this instance of `CounterState` will be available through the underlying view hierarchy
+
+```
+@main
+struct SimpleApp: App {
+    let todoState = TodoState()
+    
+    var body: some Scene {
+        WindowGroup {
+            RouterView()
+                .environmentObject(todoState)
+        }
+    }
+}
+```
+
+### Local level
+
+This view will have its own instance of `CounterState`:
+
+```
+struct CounterView: View {
+    var body: some View {
+        _CounterView(counterState: CounterState())
+    }
+}
+```
+
+## Accessing State from views
+
+Get the EnvironmentObject:
+```
+struct TodoView: View {
+    @EnvironmentObject var todoState: TodoState
+    
+    var body: some View {
+        _TodoView(todoState: todoState)
+    }
+}
+```
+
+Using ObservedObject, any changes to your state will update your view:
+```
+struct _TodoView: View {
+    @ObservedObject private var todoState: TodoState
+    
+    init(todoState: TodoState) {
+        self.todoState = todoState
+    }
+    
+    var body: some View {
+        VStack{
+            List {
+                ForEach(todoState.items) { item in
+                    Text("Text: \(item.text)")
+                }
+            }
+        }
+    }
+}
+```
+
+You can instantiate Logic and call methods to update your State
+```
+struct _TodoView: View {
+    @ObservedObject private var todoState: TodoState
+    private let logic: TodoLogic
+    
+    init(todoState: TodoState) {
+        self.todoState = todoState
+        self.logic = TodoLogic(state: todoState)
+    }
+    
+    func onLoad() {
+        logic.fetchTodos()
+    }
+    
+    func handleSearchSubmit(text: String) {
+        logic.addTodo(text: text)
+        
+        searchIsFocused = false
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            ...
+        }
+        .onAppear(perform: onLoad)
+    }
+}
+```
+
+Selectors can be used to combine State data and update the UI
+```
+struct _TodoView: View {
+    @ObservedObject private var todoState: TodoState
+    private let logic: TodoLogic
+    
+    init(todoState: TodoState) {
+        self.todoState = todoState
+        self.logic = TodoLogic(state: todoState)
+    }
+    
+    var body: some View {
+        VStack{
+            List {
+                ForEach(selectFilteredTodos(state: todoState)) { item in
+                    Text("Text: \(item.text)")
+                }
+            }
+        }
+    }
+}
+```
