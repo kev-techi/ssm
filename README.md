@@ -257,3 +257,56 @@ struct _TodoView: View {
     }
 }
 ```
+
+## Testing
+
+Initialize your State and Logic and test the output after triggering some logic:
+```
+final class TodoStateTests: XCTestCase {
+    let state = TodoState()
+    var logic = TodoLogic(state: TodoState())
+
+    override func setUpWithError() throws {
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+        logic = TodoLogic(state: state)
+    }
+
+    override func tearDownWithError() throws {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    }
+    
+    func testDefaultState() throws {
+        XCTAssert(state.query == "")
+        XCTAssert(state.items.isEmpty)
+        XCTAssert(state.loading == false)
+        XCTAssert(state.error == false)
+    }
+    
+    func testFetchTodoItems() async throws {
+        XCTAssert(state.items.count == 0)
+        
+        await logic.fetchTodos()
+        
+        // give the UI time to update
+        try await Task.sleep(nanoseconds: 1000000)
+        
+        XCTAssert(state.items.count == 2)
+        XCTAssert(state.items[0].text == "first item")
+        XCTAssert(state.items[1].text == "second item")
+    }
+    
+    func testAddTodoItem() async throws {
+        logic.addTodo(text: "first item")
+        logic.addTodo(text: "second item")
+        
+        // give the UI time to update
+        try await Task.sleep(nanoseconds: 1000000)
+        
+        XCTAssert(state.items.count == 2)
+        XCTAssert(state.items[0].text == "second item")
+        XCTAssert(state.items[1].text == "first item")
+    }
+    
+    ...
+}
+```
