@@ -22,6 +22,10 @@ struct RouterView : View {
                 "Counter2 (fresh)",
                 systemImage: "rectangle.fill.badge.plus"
             ) }
+            LocalCounterView().tabItem { Label(
+                "Local Counter",
+                systemImage: "rectangle.badge.plus"
+            ) }
             TodoView().tabItem { Label(
                 "To Do",
                 systemImage: "checklist"

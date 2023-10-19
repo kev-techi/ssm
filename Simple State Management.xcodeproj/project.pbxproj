@@ -19,6 +19,7 @@
 		0A7FB39C2AD5CB3F00FC4E15 /* CounterLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB39B2AD5CB3F00FC4E15 /* CounterLogic.swift */; };
 		0A7FB39F2AD5CC6A00FC4E15 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB39E2AD5CC6A00FC4E15 /* CounterView.swift */; };
 		0A88D4822AD6004D00DEF96C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0A88D4812AD6004D00DEF96C /* README.md */; };
+		0AC6D8802AE13C510085F8A4 /* LocalCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC6D87F2AE13C510085F8A4 /* LocalCounterView.swift */; };
 		0AC8F3B22AD5C70A0088C5D6 /* Simple_State_ManagementApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8F3B12AD5C70A0088C5D6 /* Simple_State_ManagementApp.swift */; };
 		0AC8F3B42AD5C70A0088C5D6 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8F3B32AD5C70A0088C5D6 /* TodoView.swift */; };
 		0AC8F3B62AD5C70B0088C5D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AC8F3B52AD5C70B0088C5D6 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		0A7FB39B2AD5CB3F00FC4E15 /* CounterLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterLogic.swift; sourceTree = "<group>"; };
 		0A7FB39E2AD5CC6A00FC4E15 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		0A88D4812AD6004D00DEF96C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0AC6D87F2AE13C510085F8A4 /* LocalCounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalCounterView.swift; sourceTree = "<group>"; };
 		0AC8F3AE2AD5C70A0088C5D6 /* Simple State Management.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple State Management.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AC8F3B12AD5C70A0088C5D6 /* Simple_State_ManagementApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_State_ManagementApp.swift; sourceTree = "<group>"; };
 		0AC8F3B32AD5C70A0088C5D6 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		0A7FB3952AD5CAC400FC4E15 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				0AC6D87E2AE13C3E0085F8A4 /* LocalCounter */,
 				0A1919222AD5D9250078323B /* CounterFreshView */,
 				0A19191D2AD5D6D80078323B /* CounterReadOnly */,
 				0A7FB39D2AD5CC5700FC4E15 /* Counter */,
@@ -214,6 +217,14 @@
 				0A7FB39E2AD5CC6A00FC4E15 /* CounterView.swift */,
 			);
 			path = Counter;
+			sourceTree = "<group>";
+		};
+		0AC6D87E2AE13C3E0085F8A4 /* LocalCounter */ = {
+			isa = PBXGroup;
+			children = (
+				0AC6D87F2AE13C510085F8A4 /* LocalCounterView.swift */,
+			);
+			path = LocalCounter;
 			sourceTree = "<group>";
 		};
 		0AC8F3A52AD5C70A0088C5D6 = {
@@ -411,6 +422,7 @@
 				0A19192E2AD5F3140078323B /* TodoSelectors.swift in Sources */,
 				0A1919252AD5DF8A0078323B /* TodoItem.swift in Sources */,
 				0A19192A2AD5E0250078323B /* TodoState.swift in Sources */,
+				0AC6D8802AE13C510085F8A4 /* LocalCounterView.swift in Sources */,
 				0AC8F3B42AD5C70A0088C5D6 /* TodoView.swift in Sources */,
 				0A7FB39C2AD5CB3F00FC4E15 /* CounterLogic.swift in Sources */,
 				0A7FB39F2AD5CC6A00FC4E15 /* CounterView.swift in Sources */,
